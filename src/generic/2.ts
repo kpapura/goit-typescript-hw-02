@@ -13,7 +13,7 @@ type AllType = {
 type topFields = Pick<AllType, "name" | "color">
 type bottomFields = Pick<AllType, "position" | "weight">
 
-function compare<T, U>(top: T, bottom: U): AllType {     
+function compare<T extends topFields, U extends bottomFields>(top: T, bottom: U): AllType {     
   return {
     name: top["name"],
     color: top["color"],
@@ -21,6 +21,6 @@ function compare<T, U>(top: T, bottom: U): AllType {
     weight: bottom['weight'],
   }
 }
-compare<topFields, bottomFields>({ name: 'Test', color: "blue" }, {position:1, weight:50 });
+compare({ name: 'Test', color: "blue" }, {position:1, weight:50 });
 
 export {};

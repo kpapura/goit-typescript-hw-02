@@ -3,7 +3,7 @@
 */
 
 interface Props{
-  [key:string]:string | number
+  [key:string]:string
 }
 class Component<T> {
   constructor (public props:T) {
